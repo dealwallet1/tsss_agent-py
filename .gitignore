@@ -1,0 +1,10 @@
+venv/
+tsss_venv/
+__pycache__/
+*.pyc
+.env
+.vercel
+.chroma_db
+.venv
+.cache.db
+

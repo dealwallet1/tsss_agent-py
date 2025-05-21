@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cs-agent
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+spec:
+  rules:
+    - host: agent.dealwallet.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: cs-agent
+                port:
+                  number: 4054
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - agent.dealwallet.com

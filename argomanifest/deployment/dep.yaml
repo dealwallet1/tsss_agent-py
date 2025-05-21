@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cs-agent
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
+  selector:
+     matchLabels:
+       app: cs-agent
+  template:
+    metadata:
+      labels:
+        app: cs-agent
+    spec:
+      imagePullSecrets:
+        - name: github-registry
+      containers:
+      - name: cs-agent
+        imagePullPolicy: Always
+        image: ghcr.io/dealwallet1/cs_agent-py:latest 
+        envFrom:
+        - secretRef:
+            name: cs-agent
+        ports:
+        - containerPort: 4053
+        volumeMounts:
+        - name: cs-agent-pvc
+          mountPath: /cs_agent
+      volumes:
+      - name: cs-agent-pvc
+        hostPath:
+          path: /home/engineering/cs_app
+

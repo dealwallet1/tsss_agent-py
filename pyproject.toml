@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "tsss_agent"
+version = "0.0.1"
+description = "Agent APP By TSSS Infotech & Infra PVT"
+authors = ["TSSS Infotech <info@tsssinfotech.com>"]
+license = "TSSS"
+
+[project]
+name = "tsss_agent"
+version = "0.0.1"
+dependencies = [
+    "langgraph",
+    "langchain",
+    "openai",
+    "langchain-community",
+    "copilotkit",
+    "uvicorn",
+    "python-dotenv",
+    "langchain-core",
+    "langgraph-cli",
+    "langgraph-prebuilt",
+    "numpy",
+    "langchain-ollama",
+    "load_dotenv",
+    "meilisearch",
+    "pystache"
+]
+
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry.dependencies]
+langgraph ="0.4.1"
+python = "^3.11"
+
+langchain = "^0.3.1"
+openai = "^1.51.0"
+langchain-community = "^0.3.1"
+copilotkit = "0.1.39"
+uvicorn = "^0.31.0"
+python-dotenv = "^1.0.1"
+langchain-core = "^0.3.25"
+numpy= "1.26.4"
+langgraph-cli = {extras = ["inmem"], version = "^0.1.64"}
+langgraph-prebuilt = ">=0.1.1,<0.2"
+langchain-ollama="0.2.3"
+load-dotenv= "0.1.0"
+meilisearch= "0.34.0"
+pystache="0.6.8"
+[tool.poetry.scripts]
+agent_server = "agent_server:main"
