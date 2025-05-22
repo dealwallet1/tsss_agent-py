@@ -15,7 +15,7 @@ jobs:
         with:
           registry: ghcr.io
           username: bnagaraju7
-          password: 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
+          password: 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
           logout: false
       - name: Build and push
         uses: docker/build-push-action@v4
